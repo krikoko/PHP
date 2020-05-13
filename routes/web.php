@@ -11,26 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-        'title' => 'MobileShop',
-        'head' => 'Добро пожаловать на мой сайт!'
-    ]);
-});
 
-Route::get('catalog', function () {
-    return view('catalog', [
-        'head' => 'Каталог',
-        'com' => 'Здесь мой небольшой коммент...'
-    ]);
-});
 
-Route::get('about', function () {
-    $p = 'Регистрация';
-    $li = [
-        'Main page',
-        'Registration',
-        'Catalog'
-    ];
-    return view('about',compact('p'), compact('li'));
-});
+    Route::get('/', 'IndexController@index');
+    Route::get('/news', 'PostsController@index');
+    Route::get('/news/politic', 'PostsController@politic');
+    Route::get('/news/economic', 'PostsController@economic');
+    Route::get('/news/sport', 'PostsController@sport');
+    Route::get('news/category/1', 'CategoryController@a');
+    Route::get('news/category/2', 'CategoryController@b');
+    Route::get('news/category/3', 'CategoryController@c');
+    
+
+   
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
