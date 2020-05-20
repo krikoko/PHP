@@ -17,21 +17,21 @@ class PostsController extends Controller
     {
         $posts = Posts::economic();
         
-        return view('posts', compact('posts'));
+        return view('economic', compact('posts'));
     }
 
     public function politic()
     {
         $posts = Posts::politic();
         
-        return view('posts', compact('posts'));
+        return view('politic', compact('posts'));
     }
 
     public function sport()
     {
         $posts = Posts::sport();
         
-        return view('posts', compact('posts'));
+        return view('sport', compact('posts'));
     }
     
     

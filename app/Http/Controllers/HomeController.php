@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
+
 {
+    
     /**
      * Create a new controller instance.
      *
@@ -25,4 +27,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
+   
+    
 }

@@ -22,10 +22,14 @@
     Route::get('news/category/2', 'CategoryController@b');
     Route::get('news/category/3', 'CategoryController@c');
     
-
+    Route::get('/contact', 'ContactController@show')->name('contact');
+    Route::post('/contact',  'ContactController@mailToAdmin')->name('contact'); 
    
 
 
 Auth::routes();
 
+
+Route::post('/home', 'AddController@add')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::match(['get', 'post'], '/add', 'AddController@add');
