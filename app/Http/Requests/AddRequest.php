@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
 class AddRequest extends FormRequest
 {
     /**
@@ -24,10 +23,11 @@ class AddRequest extends FormRequest
     public function rules()
     {
         return [
-            'text' => 'required|max: 255',
-            'head' => 'required|max: 255',
-            'category' => 'required',
-            'author' => 'required|max: 255',
+            'text' => ['required'],
+            'date' => ['required'],
+            'head' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
+            'author' => ['required', 'string', 'max:255']
             
         ];
     }

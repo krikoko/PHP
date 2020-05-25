@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Add extends Model
 {
-    protected $text;
-    protected $data;
-    protected $author;
-    protected $head;
-    protected $category;
+    
+    protected $fillable = ['text', 
+                            'data', 
+                            'author', 
+                            'head', 
+                            'category'
+                        ];
      
     public function __construct() {
         $this->text = config('admin.text');

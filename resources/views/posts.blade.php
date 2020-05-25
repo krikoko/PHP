@@ -17,11 +17,13 @@
     @foreach($posts as $post)
     <div class="row">
       <div class="col-md-4">
-        <h2>{{$post->text}}</h2>
-        <p>{{$post->prew}} </p>
-        <p>{{$post->author}}</p>
+        <h2>{{$post->head}}</h2>
+        <p>{{$post->text}} </p>        
+        <h5>{{$post->author}}  ({{$post->date}})</h5>
+        
+        <hr>  
       </div>
-    <hr>    
+      
   </div>
   @endforeach
   @endif
@@ -30,12 +32,11 @@
     <button class="btn"><a href="http://127.0.0.1:8000/news/economic">"Экономика"</a></button>
     <button class="btn"><a href="http://127.0.0.1:8000/news/politic">"Политика"</a></button>
     <button class="btn"><a href="http://127.0.0.1:8000/news/sport">"Спорт"</a></button>
-    
+    {{$posts->links()}}
     </div>
     </div>
    
-    
-    @endsection
+      @endsection
     
 
 </html>
