@@ -26,10 +26,12 @@
     Route::post('/contact',  'ContactController@mailToAdmin')->name('contact'); 
    
 
+   
 
-Auth::routes();
-
-
-Route::post('/home', 'AddController@add')->name('home');
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::match(['get', 'post'], '/add', 'AddController@add');
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource ('home/add', 'AddController');
+    
+    
+    
+    
