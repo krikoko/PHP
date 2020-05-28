@@ -21,12 +21,8 @@
         </div>
     </div><br><br>
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Добавить пост</div>
-                    <div>
-                    @include('layouts.add_news_form')
+    <button type="button" class="btn btn-primary btn-lg"><a href="{{route('add.index')}}">Перейти к таблицам</a></button>
+    
            </div>
        </div>
     </div>

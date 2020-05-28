@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <div class="content">
 <button type="button" class="btn btn-outline-primary"><a href="{{route('add.create')}}">Add post</a></button>
+<button type="button" class="btn btn-dark"><a href="{{route('home')}}">Back</a></button>
 {{$posts->links()}}
 @foreach($posts as $post)
 <div class="content">
@@ -34,6 +35,7 @@
     </tr>
   </table>
   <button type="button" class="btn btn-outline-warning"><a href="{{route('add.edit', ['post'=>$post])}}">Update post</a></button>
+  
   
 
 
