@@ -1,4 +1,4 @@
-<div class="content">
+<div class="container">
 <form action="{{route('home')}}" method="POST">
 @csrf
 <div class="col">

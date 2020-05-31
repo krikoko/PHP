@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Add;
+use App\Http\Requests\AddRequest;
 use Illuminate\Http\Request;
+use App\Models\Add;
+
 
 class AddController extends Controller
 {
@@ -36,7 +38,7 @@ class AddController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddRequest $request)
     {
        $text = $request->input('text');
        $head = $request->input('head');
@@ -91,7 +93,7 @@ class AddController extends Controller
      * @param  \App\Http\Models\Add  $add
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Add $add)
+    public function update(AddRequest  $request, Add $add)
     {
         $add -> text = $request -> input('text');
         $add -> head = $request -> input('head');

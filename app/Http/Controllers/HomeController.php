@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class HomeController extends Controller
-
 {
-    
     /**
      * Create a new controller instance.
      *
@@ -27,6 +26,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
-   
-    
+
+    public function contact()
+    {
+    $contacts = Contact::paginate(5);
+        //dd($contacts);
+        return view('contacts.cont')->with(['contacts'=>$contacts]);
+}
 }

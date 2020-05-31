@@ -1,3 +1,5 @@
+
+@include('layouts.part')
 <div class="container">
         <h1 class="mb-2 text-left">Форма обратной связи</h1>
  
@@ -5,6 +7,7 @@
             <div class='alert alert-success'>
                 {{ session('message') }}
             </div>
+        
         @endif
  
         <div class="col-12 col-md-6">
@@ -26,7 +29,8 @@
                 </div>
  
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" value="Send">Отправить</button>
+                    <button type="submit" class="btn btn-success" value="Send">Отправить</button>
+                    <button type="reset" class="btn btn-warning">Отмена</button>
                 </div>
             </form>
         </div>

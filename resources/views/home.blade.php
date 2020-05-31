@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -16,12 +17,13 @@
 
                     Вы авторизованы как, {{Auth::user()->name}}!
                 </div>
-                
             </div>
+        
         </div>
     </div><br><br>
 
-    <button type="button" class="btn btn-primary btn-lg"><a href="{{route('add.index')}}">Перейти к таблицам</a></button>
+    <button type="button" class="btn btn-primary"><a href="{{route('add.index')}}" style="color:cornsilk">Перейти к таблицам</a></button><br><br>
+    <button type="button" class="btn btn-primary"><a href="/home/contact"style="color:cornsilk">Сообщения от клиентов</a></button>
     
            </div>
        </div>

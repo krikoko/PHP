@@ -21,17 +21,18 @@
     Route::get('news/category/1', 'CategoryController@a');
     Route::get('news/category/2', 'CategoryController@b');
     Route::get('news/category/3', 'CategoryController@c');
-    
-    Route::get('/contact', 'ContactController@show')->name('contact');
-    Route::post('/contact',  'ContactController@mailToAdmin')->name('contact'); 
-   
-
-   
+      
 
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home/contact', 'HomeController@contact')->name('contact');
     Route::resource ('home/add', 'AddController');
+    Route::resource ('contact', 'ContactController');
+   // Route::get('home/contact', 'ContactController@create');
     
     
     
     
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

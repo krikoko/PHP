@@ -2,26 +2,105 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Notifications\InboxMessage;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactFormRequest;
-use App\Admin;
+use Illuminate\Http\Request;
+use App\Models\Contact;
+
 
 class ContactController extends Controller
 {
-      public function show()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        return view('contact');
+      
+        return view('contacts.contact');
     }
- 
-    public function mailToAdmin(ContactFormRequest $request)
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         
-       // $admin->notify(new InboxMessage($message));
-       $inp = $request->only('name','email','message');
-        return $inp;
-          
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(ContactFormRequest $request)
+    {
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $message = $request->input('message');
+     
+        $contacts = Contact::create([
+ 
+         'name' => $name,
+         'email' => $email,
+         'message' => $message,
+        
+ 
+        ]);
+ 
+        if($contacts){
+         return back()->with('success', 'Post has been added!');
+        }
+ 
+        return back()->with('error', 'ERROR!');
+     
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
-
