@@ -32,5 +32,10 @@ class HomeController extends Controller
     $contacts = Contact::paginate(5);
         //dd($contacts);
         return view('contacts.cont')->with(['contacts'=>$contacts]);
-}
+    }
+
+    public function show()
+    {
+        return view('index');
+    }
 }

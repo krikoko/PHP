@@ -5,6 +5,7 @@
 <div class="col">
   <form action="{{route('add.store')}}" method="POST">
 @csrf
+
 <div class="row">
       <textarea type="textarea" name = "text" class="form-control" placeholder="Введите текст..." value = ""style="height:400px"></textarea>
     @if($errors->has('text'))
