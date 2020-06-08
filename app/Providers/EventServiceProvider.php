@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\LastReloadEvent;
+use App\Listeners\LastReloadListener;
+use App\Listeners\LoginListener;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +22,22 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+         Login::class => [
+            LoginListener::class,
+
+        ],
+        LastReloadEvent::class =>[
+            LastReloadListener::class,
+        ],
+        \SocialiteProviders\Manager\SocialiteWasCalled::class =>[
+            'SocialiteProviders\\VKontakte\\VKontakteExtendSocialite@handle'],
+
+            ['SocialiteProviders\\Facebook\\FacebookExtendSocialite@handle'
+            
+        ],
+        
+        
     ];
 
     /**

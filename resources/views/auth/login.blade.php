@@ -6,7 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><p>Авторизация</p></div>
+                <p><a href="{{route('vk.login')}}"><img src="https://avatanplus.com/files/resources/mid/572ba2d9a4d7d1548274224b.png" width="50" 
+                                                height="50" alt="Пример"></a></p>
 
+                <p><a href="{{route('fb.login')}}"><img src="https://s1.iconbird.com/ico/0912/MetroUIDock/w512h5121347464873Facebookalt1.png" width="50" 
+                                                height="50" alt="Пример"></a></p>                                
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

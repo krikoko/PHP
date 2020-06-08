@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -36,4 +37,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function lastLogin()
+    {
+        $this->last_login = Carbon::now();
+        return $this->save();
+    }
+
+    public function lastReload()
+    {
+        $this->last_reload = Carbon::gmdate('H:i:s');
+        return $this->save();
+    }
 }

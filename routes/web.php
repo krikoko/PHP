@@ -23,7 +23,17 @@ Route::get('/', 'IndexController@index');
     Route::get('news/category/3', 'CategoryController@c');
 
 
+//Login across socialservices
+    Auth::routes();
+    Route::group(['prefix' => 'auth'], function()
+    {
+        Route::get('/vk', 'Auth\Vkcontroller@login')->name('vk.login');
+        Route::get('/callback', 'Auth\Vkcontroller@response')->name('vk.callback');
+        Route::get('/facebook', 'Auth\FacebookController@facebook')->name('fb.login');
+         Route::get('/facebook/callback', 'Auth\FacebookController@callback')->name('fb.callback');
+    });
 
+//routes for authorized users
     Auth::routes();
     Route::group([ 'middleware' => 'auth'], function()
         {  
@@ -33,7 +43,7 @@ Route::get('/', 'IndexController@index');
         Route::resource('home/profile', 'ProfileController');
         
 
- 
+ //routes for admin users
         Route::group(['prefix' =>'admin', 'middleware' => 'admin'], function(){
             Route::resource('home/add', 'AddController');
             

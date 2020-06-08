@@ -16,8 +16,12 @@
                     @endif
 
                     Вы авторизованы как, {{Auth::user()->name}}!
+                    <?php echo 'Последний визит в ' . gmdate('H:i:s'); ?>
                 </div>
+                <p> Последняя авторизация:  {{Auth::user()->last_login}} </p>
+                
                 <h5 class="mt-0" style="border-bottom:1px solid black;">{{Auth::user()->name}}</h5> 
+                
                 <img src="https://a.deviantart.net/avatars/g/e/george0.png?4" class="align-self-start mr-3" alt="ava" style="padding:10px;"><br><br>&nbsp;&nbsp;
                 
                
